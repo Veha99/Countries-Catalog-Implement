@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries Catalog Implementation</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body style="background-color: #fff3e7;">
+    <h1 class="ms-3">Countries Catalog</h1>
+    <div class="row py-2 ms-3 me-0">
+      <!-- Search Box -->
+      <div class="col-8 p-0">
+        <h5>Search By Country Name</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="search_input" placeholder="Search Country Name" aria-label="Country" aria-describedby="basic-addon2">
+        </div>
+      </div>
+      <!-- Sort Box-->
+      <div class="col-4">
+        <h5>Sort Country Name</h5>
+        <select class="form-select" id="sortCountry" aria-label="Sort select">
+          <option selected>Sort By Default</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th scope="col" >Flag</th>
+          <th scope="col" class="text-center">Country Name</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody id="country_display">
+        <!-- append table data from js -->
+      </tbody>
+    </table>
+
+    <div class="row m-0">
+      <!-- Pagination -->
+      <div class="col-11">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center" id="pagination">
+            <!-- render pagination from js -->
+          </ul>
+        </nav>
+      </div>
+    <!-- end pagination  -->
+    <div class="col-1">
+      <a href="#" class="btn btn-primary" style="border-radius: 50%;"><i class="fa fa-arrow-up"></i></a>
+    </div>
+    </div>
+
+    <!-- Modal Country Detail -->
+    <div class="modal fade" id="countryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+                <div class="card">
+                    <img class="card-img-top" alt="Card image cap" id="country_img">
+                    <div class="card-body">
+                        <h5 class="card-title" id="country_title"></h5>
+                        <ul style="list-style: none; padding-left: 0 !important;">
+                          <li><b>CCA2:</b> <span id="cca2"></span></li>
+                          <li><b>CCA3:</b> <span id="cca3"></span></li>
+                          <li><b>Native Country Name:</b> <span id="nativeName"></span></li>
+                          <li><b>Alternative Country Name:</b> <span id="altSpellings"></span></li>
+                          <li><b>Country Calling IDD:</b> <span id="idd"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- end Modal -->
+    
+  </body>
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
