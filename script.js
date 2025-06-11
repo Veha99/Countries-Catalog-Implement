@@ -1,6 +1,7 @@
+const fields = ["name", "flags", "cca2", "cca3", "idd"];
 async function getDataAPI() {
   const response = await fetch(
-    "https://restcountries.com/v3.1/all"
+    "https://restcountries.com/v3.1/all?fields=" + fields
   );
   const countries = await response.json();
   return countries;
@@ -164,7 +165,6 @@ function getProperty(obj, propertyPath) {
   return value;
 }
 
-let countries = [];
 function searchCountry() {
   const searchInput = document.getElementById("search_input");
 
@@ -172,8 +172,9 @@ function searchCountry() {
     const filterInput = countries.filter((country) => {
       return country.name.official
         .toLowerCase()
-        .includes(searchInput.value.toLocaleLowerCase());
+        .includes(searchInput.value.toLowerCase());
     });
+    currentPage = 1;
     displayCounties(filterInput);
   });
 }
@@ -208,3 +209,7 @@ function sortCountry() {
   });
 }
 sortCountry();
+
+function clickReload() {
+  window.location.reload();
+}
